@@ -20,6 +20,12 @@ class Usuario {
     return usuariosDao.adiciona(this);
   }
 
+  static gerarSenhaHash(senha) {
+    const custohash = 12;
+
+    return bcrypt.hash(senha, custohash);
+  }
+
   valida() {
     validacoes.campoStringNaoNulo(this.nome, "nome");
     validacoes.campoStringNaoNulo(this.email, "email");
