@@ -5,8 +5,6 @@ module.exports = {
   adiciona: async (req, res) => {
     const { nome, email, senha } = req.body;
 
-    console.log(email);
-
     try {
       const usuario = new Usuario({
         nome,
