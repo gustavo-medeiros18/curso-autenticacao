@@ -1,10 +1,12 @@
-const usuariosControlador = require('./usuarios-controlador');
+const passport = require("passport");
+const usuariosControlador = require("./usuarios-controlador");
 
-module.exports = app => {
+module.exports = (app) => {
   app
-    .route('/usuario')
-    .post(usuariosControlador.adiciona)
-    .get(usuariosControlador.lista);
+    .route("/usuario/login")
+    .post(passport.authenticate("local", { session: false }), usuariosControlador.login);
 
-  app.route('/usuario/:id').delete(usuariosControlador.deleta);
+  app.route("/usuario").post(usuariosControlador.adiciona).get(usuariosControlador.lista);
+
+  app.route("/usuario/:id").delete(usuariosControlador.deleta);
 };
