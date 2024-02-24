@@ -14,6 +14,7 @@ async function verificaSenha(senha, senhaHash) {
   if (!senhaValida) throw new InvalidArgumentError("E-mail ou senha inválidos");
 }
 
+// Configura o passport para usar a estratégia de autenticação local
 passport.use(
   new LocalStrategy(
     { usernameField: "email", passwordField: "senha", session: false },
