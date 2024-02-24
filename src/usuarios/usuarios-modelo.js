@@ -10,6 +10,9 @@ class Usuario {
     this.email = usuario.email;
     this.senhaHash = usuario.senhaHash;
 
+    console.log(usuario.id);
+    console.log(usuario.senhaHash);
+
     this.valida();
   }
 

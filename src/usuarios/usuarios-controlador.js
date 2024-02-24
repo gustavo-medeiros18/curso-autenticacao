@@ -5,8 +5,6 @@ module.exports = {
   adiciona: async (req, res) => {
     const { nome, email, senha } = req.body;
 
-    console.log(email);
-
     try {
       const usuario = new Usuario({
         nome,
@@ -27,6 +25,10 @@ module.exports = {
         res.status(500).json({ erro: erro.message });
       }
     }
+  },
+
+  login: (req, res) => {
+    res.status(204).send();
   },
 
   lista: async (req, res) => {
