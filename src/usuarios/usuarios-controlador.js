@@ -38,6 +38,9 @@ module.exports = {
   },
 
   login: (req, res) => {
+    const token = criaTokenJWT(req.user);
+
+    res.set("Authorization", token);
     res.status(204).send();
   },
 
