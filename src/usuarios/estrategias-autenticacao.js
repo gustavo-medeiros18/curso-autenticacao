@@ -1,4 +1,5 @@
 const passport = require("passport");
+const BearerStrategy = require("passport-http-bearer").Strategy;
 const LocalStrategy = require("passport-local").Strategy;
 const Usuario = require("./usuarios-modelo");
 const { InvalidArgumentError } = require("../erros");
@@ -32,3 +33,5 @@ passport.use(
     }
   )
 );
+
+passport.use(new BearerStrategy());
